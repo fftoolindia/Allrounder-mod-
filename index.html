@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX MODZ — Free Fire All Round Modz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg-2: #12121a;
+  --surface: #16161f;
+  --border: rgba(124, 58, 237, 0.25);
+  --border-hot: rgba(124, 58, 237, 0.6);
+  --text: #e8e8f0;
+  --text-muted: #6b6b80;
+  --accent: #a855f7;
+  --accent-bright: #c084fc;
+  --accent-glow: rgba(168, 85, 247, 0.35);
+  --danger: #ef4444;
+  --success: #22c55e;
+  --gold: #fbbf24;
+  --telegram: #229ED9;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(168, 85, 247, 0.18), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 110%, rgba(34, 211, 238, 0.08), transparent);
+  z-index: -2;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 28px;
+}
+
+.brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.brand span { color: var(--accent-bright); }
+
+.nav-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent-bright);
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--border-hot);
+  border-radius: 4px;
+  background: rgba(168, 85, 247, 0.08);
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 32px 0 40px;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(168, 85, 247, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent-bright);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+}
+
+.hero h1 {
+  font-size: clamp(36px, 9vw, 56px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.02;
+  margin-bottom: 16px;
+}
+
+.hero h1 .accent {
+  color: var(--accent-bright);
+  position: relative;
+  display: inline-block;
+}
+
+.hero h1 .accent::after {
+  content: "";
+  position: absolute;
+  inset: -8px -12px;
+  border: 1px solid var(--accent-glow);
+  border-radius: 12px;
+  animation: borderPulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes borderPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 460px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* FEATURE CARDS */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.feature-card:hover {
+  border-color: var(--border-hot);
+  transform: translateY(-1px);
+}
+
+.feature-card-icon {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-bright);
+  background: rgba(168, 85, 247, 0.1);
+  border-radius: 8px;
+  padding: 10px 12px;
+  flex-shrink: 0;
+  min-width: 44px;
+  text-align: center;
+}
+
+.feature-card-body h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin-bottom: 4px;
+}
+
+.feature-card-body p {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.feature-tag {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--accent-bright);
+  background: rgba(168, 85, 247, 0.06);
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 26px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* KEY CARD */
+.key-card {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+  border: 1px solid var(--border-hot);
+  border-radius: 14px;
+  padding: 26px 22px;
+  margin-bottom: 16px;
+  box-shadow:
+    0 0 0 1px rgba(168, 85, 247, 0.05),
+    0 20px 60px -20px rgba(168, 85, 247, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.key-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-bright), transparent);
+}
+
+.key-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent-bright);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.key-card-label::before {
+  content: "▸";
+  color: var(--accent);
+}
+
+.key-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.key-card .key-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.key-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 12px;
+}
+
+.key-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.key-input::placeholder {
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.key-input.valid { border-color: var(--success); box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2); }
+.key-input.invalid { border-color: var(--danger); box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); }
+
+.btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px -4px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  background: var(--accent-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px -4px var(--accent-glow);
+}
+
+.btn-primary:disabled {
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent-bright);
+  border: 1px solid var(--border-hot);
+}
+
+.btn-ghost:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: var(--accent);
+}
+
+.btn-ghost:disabled {
+  color: var(--text-muted);
+  border-color: var(--border);
+  cursor: not-allowed;
+}
+
+.btn-buy {
+  background: linear-gradient(135deg, var(--gold), #f59e0b);
+  color: #1a1300;
+  font-weight: 700;
+  box-shadow: 0 4px 20px -4px rgba(251, 191, 36, 0.4);
+}
+
+.btn-buy:hover {
+  background: linear-gradient(135deg, #fcd34d, var(--gold));
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px -4px rgba(251, 191, 36, 0.55);
+}
+
+.btn-telegram {
+  background: var(--telegram);
+  color: #fff;
+  box-shadow: 0 4px 20px -4px rgba(34, 158, 217, 0.5);
+}
+
+.btn-telegram:hover {
+  background: #1e8bc4;
+  transform: translateY(-1px);
+}
+
+.btn-block { width: 100%; }
+
+.key-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  min-height: 18px;
+  margin-top: 8px;
+}
+
+.key-status.ok { color: var(--success); }
+.key-status.err { color: var(--danger); }
+
+/* BUY CARD */
+.buy-card {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(168, 85, 247, 0.08));
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.buy-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.buy-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.buy-label::before { content: "★"; }
+
+.buy-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.buy-card > p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.buy-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.price-amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.price-duration {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.price-strike {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* INFO CARD */
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.info-icon {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(168, 85, 247, 0.1);
+  border-radius: 6px;
+  padding: 6px 10px;
+  flex-shrink: 0;
+}
+
+.info-content h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.info-content p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding-top: 32px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 1px;
+  margin-top: auto;
+}
+
+footer .footer-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+footer .footer-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 6px var(--success);
+}
+
+/* MODAL */
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 12, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.25s;
+  overflow-y: auto;
+}
+
+.modal-bg.open {
+  display: flex;
+  opacity: 1;
+}
+
+.modal {
+  background: var(--bg-2);
+  border: 1px solid var(--border-hot);
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: min(440px, 100%);
+  position: relative;
+  box-shadow: 0 20px 80px -20px rgba(168, 85, 247, 0.5);
+  transform: scale(0.96);
+  transition: transform 0.25s;
+  max-height: 92vh;
+  overflow-y: auto;
+  margin: auto;
+}
+
+.modal-bg.open .modal {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  border-color: var(--accent);
+  color: var(--accent-bright);
+  transform: rotate(90deg);
+}
+
+.modal-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent-bright);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.modal h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.modal-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* QR BOX */
+.qr-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 0 auto 18px;
+  width: fit-content;
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.6);
+}
+
+.qr-box img {
+  display: block;
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.qr-caption {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+/* AMOUNT STRIP */
+.amount-strip {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px dashed rgba(251, 191, 36, 0.5);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.amount-strip-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.amount-strip-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -0.5px;
+}
+
+/* STEP ROWS IN MODAL */
+.step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.step-row:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 18px;
+}
+
+.step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-body h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.step-body p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* UPLOAD AREA */
+.upload-area {
+  border: 2px dashed var(--border-hot);
+  border-radius: 10px;
+  padding: 20px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: rgba(168, 85, 247, 0.04);
+  margin-bottom: 12px;
+}
+
+.upload-area:hover {
+  border-color: var(--accent);
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.upload-area.has-file {
+  border-color: var(--success);
+  border-style: solid;
+  background: rgba(34, 197, 94, 0.06);
+}
+
+.upload-icon {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.upload-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.upload-text b {
+  color: var(--accent-bright);
+}
+
+.upload-filename {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--success);
+  margin-top: 8px;
+  word-break: break-all;
+}
+
+input[type="file"] { display: none; }
+
+/* TELEGRAM NOTE */
+.tg-note {
+  background: rgba(34, 158, 217, 0.08);
+  border: 1px solid rgba(34, 158, 217, 0.3);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.tg-note b { color: var(--telegram); }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: 0 10px 40px -8px var(--accent-glow);
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 90vw;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.toast.success { border-color: var(--success); }
+.toast.error { border-color: var(--danger); }
+
+@media (max-width: 480px) {
+  .key-card, .buy-card { padding: 20px 18px; }
+  .qr-box img { width: 190px; height: 190px; }
+  .modal { padding: 24px 18px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <nav>
+    <div class="brand">
+      <span class="brand-dot"></span>
+      APEX <span>MODZ</span>
+    </div>
+    <div class="nav-tag">ALL ROUND</div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      FREE FIRE ALL ROUND MODZ
+    </div>
+    <h1>Unlock The<br><span class="accent">All Round</span> Modz</h1>
+    <p>One key. Every feature. Login to your banned ID, unban it, and enable anti-ban protection — all from a single APK.</p>
+  </section>
+
+  <div class="section-label">Features</div>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <div class="feature-card-icon">🔑</div>
+      <div class="feature-card-body">
+        <h4>Banned ID Login</h4>
+        <p>Log into your restricted Free Fire ID with the bypass login module. Works on banned and suspended accounts.</p>
+        <span class="feature-tag">Login Bypass</span>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-card-icon">🔓</div>
+      <div class="feature-card-body">
+        <h4>Unban Your Banned ID</h4>
+        <p>Restore access to your banned Free Fire account. Submit a UID and let the unban protocol process the restoration.</p>
+        <span class="feature-tag">ID Unban</span>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-card-icon">🛡</div>
+      <div class="feature-card-body">
+        <h4>Anti-Ban Mod</h4>
+        <p>Active anti-ban protection shields your account from detection while mods are active. Play without worrying about bans.</p>
+        <span class="feature-tag">Protection</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Access Key</div>
+
+  <div class="key-card">
+    <div class="key-card-label">ENTER YOUR KEY</div>
+    <h2>Unlock APK</h2>
+    <p class="key-desc">Paste your access key below. One key unlocks all features in the mod APK. Don't have a key? Buy one below and DM the owner after payment.</p>
+
+    <input type="text" id="keyInput" class="key-input" placeholder="APX-XXXX-XXXX-XXXX" maxlength="20" autocomplete="off" spellcheck="false">
+
+    <button class="btn btn-primary btn-block" id="unlockBtn">Unlock APK</button>
+    <div class="key-status" id="keyStatus"></div>
+  </div>
+
+  <div class="section-label">Download</div>
+
+  <div class="info-card">
+    <div class="info-icon">APK</div>
+    <div class="info-content">
+      <h4>APEX MODZ — Free Fire All Round</h4>
+      <p>Version 12.4 · 48 MB · Android 6.0+</p>
+    </div>
+  </div>
+
+  <button class="btn btn-ghost btn-block" id="downloadBtn" disabled style="margin-bottom: 16px;">
+    🔒 Enter valid key to download
+  </button>
+
+  <div class="section-label">Get A Key</div>
+
+  <div class="buy-card">
+    <div class="buy-label">PREMIUM KEY</div>
+    <h3>Buy Access Key</h3>
+    <p>Full access to all round modz. Works on all Android devices. Lifetime key available.</p>
+
+    <div class="buy-price">
+      <span class="price-amount">₹199</span>
+      <span class="price-duration">/ month</span>
+      <span class="price-strike">₹499</span>
+    </div>
+
+    <button class="btn btn-buy btn-block" id="buyBtn">
+      🛒 Buy Key Now
+    </button>
+  </div>
+
+  <div class="section-label">How It Works</div>
+
+  <div class="info-card">
+    <div class="info-icon">01</div>
+    <div class="info-content">
+      <h4>Pay via QR</h4>
+      <p>Tap Buy Key, scan the payment QR, and complete the transfer.</p>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-icon">02</div>
+    <div class="info-content">
+      <h4>Send screenshot on Telegram</h4>
+      <p>DM <b style="color:#229ED9">t.me/Owneroffapex</b> with your payment screenshot to receive your key.</p>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-icon">03</div>
+    <div class="info-content">
+      <h4>Enter key & download</h4>
+      <p>Paste the key on this page, unlock the APK, and install. All features are activated.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-line">
+      <span class="footer-dot"></span>
+      APEX MODZ · 2026 · Not affiliated with Garena
+    </div>
+  </footer>
+
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-bg" id="paymentModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-label">PAYMENT</div>
+    <h3>Complete Your Purchase</h3>
+    <p class="modal-desc">Scan the QR below with any UPI app, complete the payment, then follow the steps to receive your key.</p>
+
+    <div class="qr-box">
+      <img
+        src="https://raw.githubusercontent.com/fftoolindia/Only-photo/main/ChatGPT%20Image%20Oct%2022%2C%202026%2C%2009_30_24%20AM.png"
+        alt="Payment QR Code"
+        onerror="this.parentElement.innerHTML='<div style=\'padding:40px 20px;color:#666;font-size:12px;text-align:center;\'>QR image failed to load.<br>Open the QR directly on GitHub.</div>'"
+      >
+    </div>
+    <div class="qr-caption">SCAN TO PAY</div>
+
+    <div class="amount-strip">
+      <span class="amount-strip-label">Amount</span>
+      <span class="amount-strip-value">₹199</span>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Scan & pay</h4>
+        <p>Use Google Pay, PhonePe, Paytm, or any UPI app to scan the QR and pay ₹199.</p>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Upload payment screenshot</h4>
+        <p>Attach the screenshot of your successful payment below.</p>
+      </div>
+    </div>
+
+    <label for="screenshotInput" class="upload-area" id="uploadArea">
+      <div class="upload-icon">📷</div>
+      <div class="upload-text" id="uploadText"><b>Tap to upload</b> payment screenshot</div>
+      <div class="upload-filename" id="uploadFilename"></div>
+    </label>
+    <input type="file" id="screenshotInput" accept="image/*">
+
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>DM the owner for your key</h4>
+        <p>Send the screenshot to <b style="color:#229ED9">t.me/Owneroffapex</b> on Telegram. You'll receive your access key there.</p>
+      </div>
+    </div>
+
+    <div class="tg-note">
+      <b>Note:</b> After payment, DM the owner directly on Telegram with your screenshot. Your key will be sent to you personally.
+    </div>
+
+    <a href="https://t.me/Owneroffapex" target="_blank" rel="noopener" class="btn btn-telegram btn-block" id="dmOwnerBtn">
+      ✈ DM Owner on Telegram
+    </a>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // =====================================================
+  // CONFIG
+  // =====================================================
+  const VALID_KEY = "APX-7K9M-Q4X2-ZP8N";
+  const DOWNLOAD_URL = "#"; // <-- your actual APK URL
+  const TELEGRAM_OWNER = "https://t.me/Owneroffapex";
+  // =====================================================
+
+  const keyInput = document.getElementById('keyInput');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const keyStatus = document.getElementById('keyStatus');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const buyBtn = document.getElementById('buyBtn');
+  const toast = document.getElementById('toast');
+
+  const paymentModal = document.getElementById('paymentModal');
+  const modalClose = document.getElementById('modalClose');
+  const screenshotInput = document.getElementById('screenshotInput');
+  const uploadArea = document.getElementById('uploadArea');
+  const uploadText = document.getElementById('uploadText');
+  const uploadFilename = document.getElementById('uploadFilename');
+  const dmOwnerBtn = document.getElementById('dmOwnerBtn');
+
+  let unlocked = false;
+  let screenshotUploaded = false;
+
+  function showToast(msg, type = 'success') {
+    toast.textContent = msg;
+    toast.className = `toast ${type} show`;
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  function normalizeKey(str) {
+    return str.trim().toUpperCase().replace(/\s+/g, '');
+  }
+
+  // ============= KEY INPUT =============
+  keyInput.addEventListener('input', () => {
+    let v = keyInput.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (v.length > 3) v = v.slice(0, 3) + '-' + v.slice(3);
+    if (v.length > 8) v = v.slice(0, 8) + '-' + v.slice(8);
+    if (v.length > 13) v = v.slice(0, 13) + '-' + v.slice(13);
+    keyInput.value = v.slice(0, 19);
+
+    keyInput.classList.remove('valid', 'invalid');
+    keyStatus.textContent = '';
+    keyStatus.className = 'key-status';
+  });
+
+  keyInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') unlockBtn.click();
+  });
+
+  unlockBtn.addEventListener('click', () => {
+    const entered = normalizeKey(keyInput.value);
+
+    if (!entered) {
+      keyInput.classList.add('invalid');
+      keyStatus.textContent = '⚠ Please enter a key';
+      keyStatus.className = 'key-status err';
+      return;
+    }
+
+    if (entered === normalizeKey(VALID_KEY)) {
+      keyInput.classList.add('valid');
+      keyInput.classList.remove('invalid');
+      keyStatus.textContent = '✓ Key accepted — APK unlocked';
+      keyStatus.className = 'key-status ok';
+      unlockBtn.textContent = '✓ Unlocked';
+      unlockBtn.disabled = true;
+
+      downloadBtn.disabled = false;
+      downloadBtn.innerHTML = '⬇ Download APK';
+      downloadBtn.classList.remove('btn-ghost');
+      downloadBtn.classList.add('btn-primary');
+
+      showToast('Access granted. You can now download.', 'success');
+      unlocked = true;
+    } else {
+      keyInput.classList.add('invalid');
+      keyInput.classList.remove('valid');
+      keyStatus.textContent = '✗ Invalid key — buy one below';
+      keyStatus.className = 'key-status err';
+      showToast('Invalid key. Please check and try again.', 'error');
+    }
+  });
+
+  downloadBtn.addEventListener('click', () => {
+    if (!unlocked) return;
+    if (DOWNLOAD_URL === '#' || !DOWNLOAD_URL) {
+      showToast('Download link not configured yet.', 'error');
+      return;
+    }
+    window.location.href = DOWNLOAD_URL;
+  });
+
+  // ============= PAYMENT MODAL =============
+  function openModal() {
+    paymentModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    paymentModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  buyBtn.addEventListener('click', openModal);
+  modalClose.addEventListener('click', closeModal);
+  paymentModal.addEventListener('click', (e) => {
+    if (e.target === paymentModal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && paymentModal.classList.contains('open')) closeModal();
+  });
+
+  // ============= SCREENSHOT UPLOAD =============
+  screenshotInput.addEventListener('change', () => {
+    const file = screenshotInput.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      showToast('Please upload an image file.', 'error');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      showToast('File too large. Max 5 MB.', 'error');
+      return;
+    }
+
+    screenshotUploaded = true;
+    uploadArea.classList.add('has-file');
+    uploadFilename.textContent = `✓ ${file.name}`;
+    uploadText.innerHTML = '<b>Screenshot uploaded</b> — now DM the owner';
+    showToast('Screenshot ready. Continue to Telegram.', 'success');
+
+    // Auto-enable visual cue on DM button
+    dmOwnerBtn.style.animation = 'none';
+    void dmOwnerBtn.offsetWidth;
+    dmOwnerBtn.style.animation = 'borderPulse 2s ease-in-out 3';
+  });
+
+  // DM owner — if screenshot not uploaded, still allow but warn
+  dmOwnerBtn.addEventListener('click', (e) => {
+    if (!screenshotUploaded) {
+      showToast('Tip: upload your payment screenshot first.', 'error');
+      // don't prevent — still open telegram
+    }
+  });
+
+  // ============= CONSOLE HINT =============
+  console.log('%c[APEX MODZ] Valid key:', 'color:#a855f7;font-weight:bold;', VALID_KEY);
+  console.log('%c[APEX MODZ] Rotate by editing VALID_KEY in the script.', 'color:#6b6b80;');
+</script>
+
+</body>
+</html>
